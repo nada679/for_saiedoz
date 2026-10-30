@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Saiedoz ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html,body{
+width:100%;
+height:100%;
+overflow:hidden;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#fff8fb,#fff2f7,#ffe9f2);
+display:flex;
+justify-content:center;
+align-items:center;
+padding:10px;
+position:relative;
+overflow:hidden;
+}
+
+.glow{
+position:absolute;
+width:300px;
+height:300px;
+background:rgba(255,182,193,.18);
+border-radius:50%;
+filter:blur(80px);
+animation:moveGlow 8s infinite alternate;
+}
+
+@keyframes moveGlow{
+from{
+transform:translate(-100px,-50px);
+}
+to{
+transform:translate(100px,80px);
+}
+}
+
+.sparkle{
+position:absolute;
+color:#f2b7cb;
+opacity:.35;
+animation:floatUp linear infinite;
+pointer-events:none;
+}
+
+@keyframes floatUp{
+
+from{
+transform:translateY(0);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+to{
+transform:translateY(-100vh);
+opacity:0;
+}
+
+}
+
+.card{
+
+position:relative;
+
+width:min(95%,600px);
+
+height:auto;
+
+background:rgba(255,255,255,.6);
+
+backdrop-filter:blur(15px);
+
+border-radius:28px;
+
+padding:22px;
+
+text-align:center;
+
+box-shadow:0 15px 40px rgba(255,170,195,.15);
+
+z-index:2;
+}
+
+.top{
+font-size:.82rem;
+line-height:1.7;
+color:#b48697;
+margin-bottom:10px;
+}
+
+.heart{
+font-size:42px;
+color:#f1a6c0;
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.1);}
+100%{transform:scale(1);}
+}
+
+h1{
+font-family:'Playfair Display',serif;
+font-size:clamp(1.9rem,5vw,3rem);
+color:#735665;
+margin-top:8px;
+}
+
+.divider{
+width:70px;
+height:2px;
+background:#e9b3c6;
+margin:15px auto;
+}
+
+p{
+line-height:1.7;
+color:#826977;
+font-size:.92rem;
+}
+
+.buttons{
+margin-top:20px;
+position:relative;
+height:130px;
+}
+
+.start-buttons{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:12px;
+}
+
+button{
+border:none;
+padding:12px 28px;
+border-radius:50px;
+font-size:.95rem;
+cursor:pointer;
+font-family:'Poppins',sans-serif;
+transition:.3s;
+}
+
+.yes{
+background:#f48db1;
+color:white;
+box-shadow:0 10px 25px rgba(244,141,177,.3);
+}
+
+.no{
+background:white;
+color:#b26d88;
+}
+
+.counter-box{
+margin-top:18px;
+padding:12px;
+background:rgba(255,255,255,.45);
+border-radius:18px;
+}
+
+.counter-title{
+font-size:.8rem;
+letter-spacing:2px;
+text-transform:uppercase;
+color:#c090a2;
+margin-bottom:8px;
+}
+
+.counter{
+font-weight:600;
+color:#725462;
+}
+
+.envelope{
+font-size:70px;
+cursor:pointer;
+animation:floatEnvelope 2s infinite ease-in-out;
+}
+
+@keyframes floatEnvelope{
+0%{transform:translateY(0);}
+50%{transform:translateY(-8px);}
+100%{transform:translateY(0);}
+}
+
+.signature{
+margin-top:20px;
+color:#b48697;
+}
+
+.hidden{
+display:none;
+}
+
+#yesBtn{
+position:relative;
+z-index:999;
+}
+
+@media(max-width:768px){
+
+.card{
+padding:18px;
+width:95%;
+}
+
+.start-buttons{
+flex-direction:column;
+gap:10px;
+}
+
+button{
+width:180px;
+}
+
+.buttons{
+height:150px;
+}
+
+.heart{
+font-size:38px;
+}
+
+}
+</style>
+</head>
+<body>
+
+<div class="glow"></div>
+
+<audio id="music" preload="auto" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="clickSound">
+<source src="click.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card">
+
+<!-- PAGE 1 -->
+
+<div id="page1">
+
+<div class="top">
+To Ahmed,<br>
+the one I still think about<br>
+in quiet moments.
+</div>
+
+<div class="heart">♡</div>
+
+<h1>Do you love me?</h1>
+
+<div class="divider"></div>
+
+<p>
+Some questions already know their answers.
+</p>
+
+<div class="buttons">
+
+<div class="start-buttons">
+
+<button
+class="yes"
+onclick="playClick();firstYes()">
+Yes
+</button>
+
+<button
+class="no"
+id="noBtn">
+No
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- PAGE 2 -->
+
+<div id="page2" class="hidden">
+
+<div class="heart">♡</div>
+
+<h1>I knew it.</h1>
+
+<div class="divider"></div>
+
+<p>
+Because my heart never stopped choosing you.
+</p>
+
+<div class="counter-box">
+
+<div class="counter-title">
+Missing you for
+</div>
+
+<div class="counter" id="counter">
+Loading...
+</div>
+
+</div>
+
+<p style="margin-top:15px">
+Every day felt a little longer without you.
+</p>
+
+</div>
+
+<!-- PAGE 3 -->
+
+<div id="page3" class="hidden">
+
+<div class="heart">♡</div>
+
+<h1>Do you want us back?</h1>
+
+<div class="divider"></div>
+
+<p id="hint">
+Your heart already knows.
+</p>
+
+<div style="margin-top:30px">
+
+<button
+class="yes"
+id="yesBtn"
+onclick="playClick();showEnvelope()">
+Yes
+</button>
+
+<br><br>
+
+<button
+class="no"
+onclick="playClick();growYes()">
+No
+</button>
+
+</div>
+
+</div>
+
+<!-- ENVELOPE -->
+
+<div id="envelopePage" class="hidden">
+
+<div class="heart">♡</div>
+
+<h1>One Last Thing...</h1>
+
+<div class="divider"></div>
+
+<div
+class="envelope"
+onclick="playClick();openLetter()">
+✉
+</div>
+
+<p>Tap the letter</p>
+
+</div>
+
+<!-- FINAL -->
+
+<div id="finalPage" class="hidden">
+
+<div class="heart">♡</div>
+
+<h1>Ahmed</h1>
+
+<div class="divider"></div>
+
+<p>
+
+I'm sorry.
+
+<br><br>
+
+For every misunderstanding
+and every moment that pushed us apart.
+
+<br><br>
+
+But through all of it,
+
+I never stopped caring about you.
+
+<br><br>
+
+I miss you.
+
+I love you.
+
+<br><br>
+
+And if there's still a chance for us,
+
+I'd love for us
+to find our way back.
+
+</p>
+
+<div class="signature">
+
+Love,<br>
+Nada ♡
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/* MUSIC */
+
+window.addEventListener("load",()=>{
+
+const music =
+document.getElementById("music");
+
+music.volume = 0.8;
+
+music.play().catch(()=>{
+
+document.body.addEventListener(
+"click",
+()=>{
+music.play();
+},
+{once:true}
+);
+
+});
+
+});
+
+/* CLICK */
+
+function playClick(){
+
+const click =
+document.getElementById("clickSound");
+
+if(click){
+
+click.currentTime = 0;
+
+click.play().catch(()=>{});
+
+}
+
+}
+
+/* SPARKLES */
+
+for(let i=0;i<12;i++){
+
+const s =
+document.createElement("div");
+
+s.classList.add("sparkle");
+
+s.innerHTML="✦";
+
+s.style.left =
+Math.random()*100+"%";
+
+s.style.fontSize =
+(10+Math.random()*10)+"px";
+
+s.style.animationDuration =
+(8+Math.random()*5)+"s";
+
+document.body.appendChild(s);
+
+}
+
+/* COUNTER */
+
+const missDate =
+new Date("2026-09-25");
+
+function updateCounter(){
+
+const now = new Date();
+
+const diff = now - missDate;
+
+const days =
+Math.floor(diff/(1000*60*60*24));
+
+const hrs =
+Math.floor(diff/(1000*60*60))%24;
+
+document.getElementById("counter")
+.innerHTML =
+
+`${days} days • ${hrs} hours`;
+
+}
+
+updateCounter();
+
+setInterval(updateCounter,1000);
+
+/* PAGE 1 */
+
+function firstYes(){
+
+document.getElementById("page1")
+.style.display="none";
+
+document.getElementById("page2")
+.style.display="block";
+
+setTimeout(()=>{
+
+document.getElementById("page2")
+.style.display="none";
+
+document.getElementById("page3")
+.style.display="block";
+
+},2500);
+
+}
+
+/* NO BUTTON */
+
+const noBtn =
+document.getElementById("noBtn");
+
+const positions = [
+
+{left:"5%",top:"15%"},
+{left:"65%",top:"15%"},
+{left:"10%",top:"65%"},
+{left:"60%",top:"65%"}
+
+];
+
+const texts = [
+
+"Are you sure?",
+"Think again",
+"Really?",
+"Maybe not",
+"Try Yes ♡"
+
+];
+
+let currentPos = 0;
+
+function moveNo(e){
+
+if(e){
+e.preventDefault();
+}
+
+currentPos++;
+
+const pos =
+positions[
+currentPos % positions.length
+];
+
+noBtn.style.position="absolute";
+
+noBtn.style.left=pos.left;
+
+noBtn.style.top=pos.top;
+
+noBtn.innerText=
+texts[
+currentPos % texts.length
+];
+
+}
+
+if(noBtn){
+
+noBtn.addEventListener(
+"mouseenter",
+moveNo
+);
+
+noBtn.addEventListener(
+"click",
+moveNo
+);
+
+}
+
+/* QUESTION 2 */
+
+let scale = 1;
+
+const hints = [
+
+"Think again...",
+"Are you sure?",
+"Maybe your heart knows.",
+"I'll wait.",
+"One more chance."
+
+];
+
+let hintIndex = 0;
+
+function growYes(){
+
+scale += 0.25;
+
+const yesBtn =
+document.getElementById("yesBtn");
+
+yesBtn.style.transform =
+`scale(${scale})`;
+
+yesBtn.style.zIndex = "999";
+
+document.getElementById("hint")
+.innerText =
+hints[
+hintIndex % hints.length
+];
+
+hintIndex++;
+
+if(scale > 2){
+
+const noButtons =
+document.querySelectorAll(".no");
+
+noButtons.forEach(btn=>{
+
+btn.style.opacity="0.15";
+
+});
+
+}
+
+}
+
+/* ENVELOPE */
+
+function showEnvelope(){
+
+document.getElementById("page3")
+.style.display="none";
+
+document.getElementById("envelopePage")
+.style.display="block";
+
+}
+
+function openLetter(){
+
+document.getElementById("envelopePage")
+.style.display="none";
+
+document.getElementById("finalPage")
+.style.display="block";
+
+}
+</script>
+
+</body>
+</html>
